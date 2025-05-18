@@ -2,30 +2,235 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Hello, world!</title>
+  <title>Hello, world! – Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    body {
-      background: #232946;
-      color: #eebbc3;
-      font-family: 'Segoe UI', Arial, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
+    /* Reset and base styles */
+    html, body {
       margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', 'Arial', sans-serif;
+      background: linear-gradient(120deg, #181823, #232946 60%, #4747d1 100%);
+      min-height: 100vh;
+      color: #eebbc3;
     }
-    h1 {
-      font-size: 3rem;
-      background: linear-gradient(90deg, #eebbc3, #b8c1ec, #ffadad);
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      animation: bgfade 6s ease-in-out infinite alternate;
+    }
+    @keyframes bgfade {
+      from { background-position: 0% 50%; }
+      to   { background-position: 100% 50%; }
+    }
+
+    /* Header */
+    .hero {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .hero h1 {
+      font-size: 3.2rem;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(90deg, #eebbc3 20%, #b8c1ec 70%, #ffadad 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      background-clip: text;
-      text-fill-color: transparent;
-      text-shadow: 0 2px 20px #0003;
+              background-clip: text;
+              text-fill-color: transparent;
+      text-shadow: 0 6px 32px #0003;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      color: #b8c1ec;
+      margin-top: 0.2rem;
+    }
+
+    /* Profile Card */
+    .profile-card {
+      background: rgba(35, 41, 70, 0.95);
+      border-radius: 1.5rem;
+      box-shadow: 0 6px 32px #0004, 0 1.5px 10px #0002;
+      padding: 2rem 2.5rem;
+      margin: 2rem 0 1.5rem 0;
+      max-width: 420px;
+      text-align: center;
+    }
+    .profile-card h2 {
+      margin-bottom: 0.1rem;
+      letter-spacing: 2px;
+    }
+    .profile-card .tag {
+      display: inline-block;
+      margin: 0.5rem 0;
+      background: #22223b;
+      color: #b8c1ec;
+      border-radius: 0.8em;
+      padding: 0.3em 0.8em;
+      font-size: 0.95rem;
+      letter-spacing: 1px;
+      font-weight: bold;
+    }
+    .profile-card .about {
+      margin-top: 1rem;
+      font-size: 1rem;
+      color: #eebbc3;
+      line-height: 1.4;
+    }
+
+    /* Skill bars */
+    .skills {
+      margin: 1.5rem 0 0.7rem 0;
+      text-align: left;
+    }
+    .skills h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.6rem;
+      letter-spacing: 1.5px;
+    }
+    .skillbar {
+      margin-bottom: 1.2rem;
+    }
+    .skillbar-title {
+      margin-bottom: 0.25rem;
+      font-size: 0.98rem;
+      color: #b8c1ec;
+    }
+    .skillbar-bar {
+      background: #1a1832;
+      border-radius: 1.2em;
+      overflow: hidden;
+      height: 15px;
+      box-shadow: 0 1px 8px #0002;
+      position: relative;
+    }
+    .skillbar-fill {
+      height: 100%;
+      border-radius: 1.2em;
+      background: linear-gradient(90deg, #ffadad, #eebbc3 50%, #b8c1ec 100%);
+      transition: width 2s cubic-bezier(0.5,1,0.89,1) 0.2s;
+    }
+
+    /* Buttons and Actions */
+    .button-row {
+      margin-top: 1.6rem;
+      display: flex;
+      gap: 1.1rem;
+      justify-content: center;
+    }
+    .btn, .btn-check {
+      background: linear-gradient(90deg, #b8c1ec 30%, #eebbc3 100%);
+      color: #181823;
+      border: none;
+      border-radius: 1.2em;
+      padding: 0.7em 1.7em;
+      font-size: 1.07rem;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      cursor: pointer;
+      transition: transform 0.13s, box-shadow 0.17s;
+      box-shadow: 0 2px 10px #0002;
+    }
+    .btn:hover, .btn-check:active {
+      transform: scale(1.07);
+      box-shadow: 0 4px 24px #b8c1ec88;
+      background: linear-gradient(90deg, #eebbc3, #b8c1ec 100%);
+    }
+    .btn-check {
+      display: flex;
+      align-items: center;
+      gap: 0.7em;
+      background: #4747d1;
+      color: #fff;
+      font-weight: 800;
+      border: 1.5px solid #eebbc3;
+      padding: 0.7em 1.6em;
+      box-shadow: 0 2px 10px #0003;
+      position: relative;
+    }
+    .btn-check input[type="checkbox"] {
+      accent-color: #eebbc3;
+      width: 20px;
+      height: 20px;
+      margin-right: 0.3em;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 3.5rem;
+      color: #b8c1ec99;
+      font-size: 0.98rem;
+      letter-spacing: 0.6px;
+      text-align: center;
+    }
+    @media (max-width: 600px) {
+      .profile-card { padding: 1.2rem 0.7rem; }
+      .button-row { flex-direction: column; gap: 0.5rem; }
     }
   </style>
+  <script>
+    // Animate skill bars on load
+    window.onload = () => {
+      document.querySelectorAll('.skillbar-fill').forEach(bar => {
+        bar.style.width = bar.dataset.percent;
+      });
+    }
+  </script>
 </head>
 <body>
-  <h1>Hello, world!</h1>
+  <div class="hero">
+    <h1>Hello, world!</h1>
+    <p>Psychology Dominator. Coder. Reputable AF.</p>
+  </div>
+  <div class="profile-card">
+    <h2>x1yz | Behavioral Hacker</h2>
+    <span class="tag">Social Engineering & Persuasion</span>
+    <span class="tag">Advanced Scripting</span>
+    <span class="tag">Emotional Intelligence</span>
+    <div class="about">
+      I master the art of human manipulation, deep psychological tactics, and elite coding strategies.<br>
+      My work bends systems, minds, and algorithms alike.<br>
+      <em>“The greatest leverage is always psychological.”</em>
+    </div>
+    <div class="skills">
+      <h3>Skills</h3>
+      <div class="skillbar">
+        <div class="skillbar-title">Psychological Manipulation</div>
+        <div class="skillbar-bar"><div class="skillbar-fill" data-percent="97%"></div></div>
+      </div>
+      <div class="skillbar">
+        <div class="skillbar-title">Dark Social Engineering</div>
+        <div class="skillbar-bar"><div class="skillbar-fill" data-percent="94%"></div></div>
+      </div>
+      <div class="skillbar">
+        <div class="skillbar-title">Programming (JS, Lua, Python)</div>
+        <div class="skillbar-bar"><div class="skillbar-fill" data-percent="90%"></div></div>
+      </div>
+      <div class="skillbar">
+        <div class="skillbar-title">Game Exploitation & Scripting</div>
+        <div class="skillbar-bar"><div class="skillbar-fill" data-percent="92%"></div></div>
+      </div>
+      <div class="skillbar">
+        <div class="skillbar-title">Emotional Intelligence</div>
+        <div class="skillbar-bar"><div class="skillbar-fill" data-percent="95%"></div></div>
+      </div>
+    </div>
+    <div class="button-row">
+      <button class="btn" onclick="window.open('https://github.com/', '_blank')">View GitHub</button>
+      <button class="btn" onclick="window.open('mailto:your.email@example.com')">Contact Me</button>
+      <label class="btn-check">
+        <input type="checkbox" id="reputation" onclick="alert('Reputation: Impeccable.')">
+        Check Reputation
+      </label>
+      <button class="btn" onclick="alert('Portfolio: Not available online yet.')">Check Portfolio</button>
+    </div>
+  </div>
+  <footer>
+    &copy; 2025 x1yz | Built to stand out. <br>
+    <span style="opacity:0.7">Psychology is power. Coding is leverage.</span>
+  </footer>
 </body>
 </html>
+
