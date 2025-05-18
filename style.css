@@ -1,0 +1,297 @@
+/* Reset and base */
+:root {
+  --main-bg: #181823;
+  --secondary-bg: #232946;
+  --accent1: #b8c1ec;
+  --accent2: #eebbc3;
+  --highlight: #4747d1;
+  --danger: #ffadad;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  background: linear-gradient(120deg, var(--main-bg), var(--secondary-bg) 70%, var(--highlight) 100%);
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  color: var(--accent2);
+  scroll-behavior: smooth;
+  min-height: 100vh;
+}
+
+nav {
+  width: 100%;
+  background: rgba(35, 41, 70, 0.96);
+  padding: 0.7rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 3px 18px #0003;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+}
+
+.nav-title {
+  font-size: 1.45rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: var(--accent1);
+}
+.nav-links a {
+  color: var(--accent2);
+  margin-left: 1.6rem;
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 1px;
+  font-size: 1.05rem;
+  transition: color 0.16s;
+}
+.nav-links a:hover {
+  color: var(--danger);
+}
+
+.hero {
+  text-align: center;
+  margin: 3rem 0 2.5rem 0;
+}
+.hero h1 {
+  font-size: 2.7rem;
+  background: linear-gradient(90deg, var(--accent2), var(--accent1) 65%, var(--danger) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+          background-clip: text;
+          text-fill-color: transparent;
+  text-shadow: 0 6px 32px #0002;
+}
+.hero span {
+  font-size: 1.2rem;
+  display: block;
+  margin-top: 0.6rem;
+}
+.hero p {
+  color: var(--accent1);
+  font-size: 1.25rem;
+  margin-top: 0.7rem;
+}
+
+main {
+  width: 100%;
+}
+
+/* Section general */
+.section {
+  padding: 2.8rem 0 2.3rem 0;
+  width: 100%;
+}
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* About Section */
+.about .container {
+  display: flex;
+  align-items: flex-start;
+  gap: 2.7rem;
+}
+.profile-pic {
+  width: 120px;
+  height: 120px;
+  background: linear-gradient(120deg, var(--highlight), var(--accent1) 80%, var(--accent2));
+  border-radius: 50%;
+  margin-top: 10px;
+  box-shadow: 0 4px 22px #0005, 0 0px 0 8px #232946cc;
+}
+.about-content h2 {
+  margin-top: 0;
+  margin-bottom: 0.6em;
+  color: var(--accent1);
+  font-size: 1.7rem;
+}
+.about-content p {
+  color: var(--accent2);
+  line-height: 1.55;
+  font-size: 1.08rem;
+  margin-bottom: 1.2em;
+}
+.tags {
+  margin-top: 0.7em;
+}
+.tags span {
+  background: var(--secondary-bg);
+  color: var(--accent1);
+  padding: 0.28em 0.7em;
+  border-radius: 1em;
+  margin-right: 0.7em;
+  font-size: 0.98em;
+  font-weight: bold;
+  letter-spacing: 1.1px;
+  margin-bottom: 0.25em;
+  display: inline-block;
+}
+
+/* Skills Section */
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.2rem;
+}
+.skill-block {
+  flex: 1 1 220px;
+  background: rgba(35,41,70,0.88);
+  border-radius: 1.2em;
+  box-shadow: 0 1.5px 12px #0002;
+  padding: 1.3em 1.2em 1.4em 1.2em;
+}
+.skill-block h3 {
+  margin-top: 0;
+  margin-bottom: 0.7em;
+  font-size: 1.2rem;
+  color: var(--accent1);
+  letter-spacing: 1.1px;
+}
+.skill-block ul {
+  padding-left: 0;
+  margin: 0;
+  list-style: none;
+}
+.skill-block label {
+  font-size: 1.05em;
+  color: var(--accent1);
+  letter-spacing: 0.4px;
+}
+.skillbar {
+  width: 100%;
+  background: #232946;
+  border-radius: 1.1em;
+  height: 13px;
+  margin-bottom: 0.8em;
+  margin-top: 0.19em;
+  box-shadow: 0 1px 8px #0001;
+  overflow: hidden;
+}
+.skillbar-fill {
+  height: 100%;
+  width: 0;
+  border-radius: 1.1em;
+  background: linear-gradient(90deg, var(--danger) 0%, var(--accent2) 40%, var(--accent1) 100%);
+  transition: width 2.2s cubic-bezier(0.5,1,0.89,1);
+}
+
+/* Portfolio Section */
+.portfolio-cards {
+  display: flex;
+  gap: 2.2rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+.portfolio-card {
+  flex: 1 1 260px;
+  background: rgba(35,41,70,0.93);
+  border-radius: 1.2em;
+  box-shadow: 0 1.5px 12px #0002;
+  padding: 1.3em 1.2em 1.4em 1.2em;
+  margin-bottom: 1.2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.portfolio-card h3 {
+  color: var(--accent1);
+  margin-top: 0.1em;
+  margin-bottom: 0.7em;
+  font-size: 1.1em;
+  letter-spacing: 1.1px;
+}
+.portfolio-card p {
+  color: var(--accent2);
+  font-size: 0.99em;
+  margin-bottom: 1.2em;
+}
+.portfolio-card button {
+  background: linear-gradient(90deg, var(--accent1) 30%, var(--accent2) 100%);
+  color: var(--main-bg);
+  border: none;
+  border-radius: 1.1em;
+  padding: 0.53em 1.5em;
+  font-size: 1.03rem;
+  font-weight: 700;
+  letter-spacing: 0.9px;
+  cursor: pointer;
+  transition: transform 0.12s, box-shadow 0.13s;
+  box-shadow: 0 2px 10px #0001;
+}
+.portfolio-card button:hover {
+  transform: scale(1.06);
+  box-shadow: 0 4px 18px var(--accent1);
+}
+
+/* Contact Section */
+.contact-container {
+  text-align: center;
+}
+.contact-row {
+  margin-bottom: 1.2em;
+}
+.copy-btn {
+  background: var(--highlight);
+  color: #fff;
+  border: none;
+  border-radius: 1em;
+  padding: 0.6em 1.5em;
+  font-size: 1.07rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: background 0.18s;
+  margin-right: 0.7em;
+}
+.copy-btn:hover {
+  background: var(--danger);
+}
+.socials {
+  margin-top: 1em;
+}
+.social-btn {
+  background: var(--accent2);
+  color: var(--main-bg);
+  border-radius: 1em;
+  padding: 0.5em 1.4em;
+  font-weight: bold;
+  margin: 0 0.45em;
+  font-size: 1.03rem;
+  text-decoration: none;
+  box-shadow: 0 2px 10px #0001;
+  transition: background 0.18s, color 0.18s;
+}
+.social-btn:hover {
+  background: var(--highlight);
+  color: #fff;
+}
+.social-btn.discord {
+  background: #5865f2;
+  color: #fff;
+}
+
+/* Footer */
+footer {
+  margin: 3.7em 0 0 0;
+  color: var(--accent1);
+  font-size: 1.03em;
+  letter-spacing: 0.7px;
+  text-align: center;
+  opacity: 0.78;
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+  .skills-grid, .portfolio-cards { flex-direction: column; gap: 1.1rem; }
+  .about .container { flex-direction: column; gap: 1.1rem; }
+}
+@media (max-width: 700px) {
+  .section, .container { padding: 0 0.1em; }
+  nav { padding: 0.7rem 0.6rem; }
+}
